@@ -1,0 +1,101 @@
+{%extends 'base.html'%} {%block 'title'%} BoutikPage {%endblock%} {%block 'css'%}
+<style type="text/css">
+    body {
+        background-color: whitesmoke;
+    }
+</style>
+{%endblock%} {%block 'content'%}{%endblock%} {%block 'js'%}
+<div class="container">
+
+    <p><strong>La liste des produits</strong></p>
+    <section>
+        <table class="table table striped">
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>pays</th>
+                    <th>Date de creation</th>
+                    <th>date de derniere mis a jour</th>
+                    <th>Prix</th>
+                    <th>Image</th>
+                    <th>Magasin</th>
+                </tr>
+            </thead>
+            {% for produit in produits %}
+            <tbody>
+                <tr>
+                    <td class="table-primary">{{produit.name}}</td>
+                    <td class="table-secondary">{{produit.country}}</td>
+                    <td class="table-success">{{produit.created_at}}</td>
+                    <td class="table-light">{{produit.updated_at}}</td>
+                    <td class="table-success">{{produit.price}}</td>
+                    <td class="table-primary">{{produit.image}}</td>
+                    <td class="table-light">{{produit.magasin}}</td>
+                    <td class="table-light">
+                        <a href="{{person.get_update_url}}" class="btn btn-link">Update</a>
+                    </td>
+                </tr>
+            </tbody>
+            {%endfor%}
+        </table>
+
+    </section>
+    <p><strong>La liste des Magasins</strong></p>
+    <section>
+        <table class="table table striped">
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>pays</th>
+                    <th>Date de creation</th>
+                    <th>date de derniere mis a jour</th>
+                </tr>
+            </thead>
+            {% for magasin in magasins %}
+            <tbody>
+                <tr>
+                    <td class="table-primary">{{magasin.name}}</td>
+                    <td class="table-secondary">{{magasin.country}}</td>
+                    <td class="table-success">{{magasin.created_at}}</td>
+                    <td class="table-light">{{magasin.updatd_at}}</td>
+                    <td class="table-light">
+                        <a href="{{person.get_update_url}}" class="btn btn-link">Update</a>
+                    </td>
+                </tr>
+            </tbody>
+            {%endfor%}
+        </table>
+
+    </section>
+    <p><strong>La liste des profils de magasin</strong></p>
+    <section>
+        <table class="table table striped">
+            <thead>
+                <tr>
+                    <th>email</th>
+                    <th>phone</th>
+                    <th>Magasin</th>
+                    <th>Date de creation</th>
+                    <th>date de derniere mis a jour</th>
+                </tr>
+            </thead>
+            {% for profil in profilMagasins %}
+            <tbody>
+                <tr>
+                    <td class="table-primary">{{profil.email}}</td>
+                    <td class="table-secondary">{{profil.phone}}</td>
+                    <td class="table-primary">{{profil.magasin}}</td>
+                    <td class="table-success">{{profil.created_at}}</td>
+                    <td class="table-light">{{profil.updatd_at}}</td>
+                    <td class="table-light">
+                        <a href="{{person.get_update_url}}" class="btn btn-link">Update</a>
+                    </td>
+                </tr>
+            </tbody>
+            {%endfor%}
+        </table>
+
+    </section>
+
+</div>
+{%endblock%}

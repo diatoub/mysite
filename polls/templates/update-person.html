@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+{% block 'title'%} 
+homePage
+{% endblock%}
+{% block 'css'%} 
+<style type="text/css">
+    body{
+        background-color: rgb(197, 219, 212);
+    }
+</style>
+{% endblock%}
+{% block 'content'%}
+<div class="container mt-5">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6">
+            <form action="" method="post" novalidate>
+                {%csrf_token%}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Enregistrer</button>  
+            </form>
+        </div>
+    </div>
+    <a href="{% url 'home' %}" class="btn btn-link">Go back</a>
+</div>
+ {% endblock%}
+{% block 'js'%}
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function(){
+alert ("I'm in templating of home page")})
+</script>
+ {% endblock%}
